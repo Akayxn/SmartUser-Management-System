@@ -1,0 +1,11 @@
+.MainDash {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+}
+
+.MainDash-Items {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
