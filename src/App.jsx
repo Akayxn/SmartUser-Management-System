@@ -9,12 +9,13 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <div className="AppSection">
-            <Sidebar /> 
+          <Sidebar /> 
 
           <Routes>
 
-            <Route path="/dashboard" element={<MainDash></MainDash>}></Route>
-            <Route path="/about"></Route>
+            <Route path="dashboard" element={<MainDash></MainDash>}></Route>
+            <Route path="about"></Route>
+            <Route path="/" element={<MainDash></MainDash>}></Route>
           </Routes>
         </div>
       </div>

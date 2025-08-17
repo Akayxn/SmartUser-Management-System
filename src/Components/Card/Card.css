@@ -1,15 +1,8 @@
-p,
-h3,
-svg {
-  margin: 0;
-  padding: 0px;
-}
-
 .Card {
   background-color: rgba(255, 255, 255, 0.671);
   border-radius: 1rem;
-  border: 1px solid hsla(0, 0%, 0%, 0.317);
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.166);
+  border: 1px solid hwb(0 0% 100% / 0.185);
+  box-shadow: 1px 1px 1px rgba(196, 196, 196, 0.079);
   padding: 1rem 2rem;
 }
 
