@@ -1,0 +1,12 @@
+.AddUser {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  gap: 20px;
+}
+
+.AddUser-Items {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
