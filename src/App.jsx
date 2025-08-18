@@ -1,8 +1,10 @@
+import "./App.css";
+
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
 import MainDash from "./Components/MainDash/MainDash";
 import Sidebar from "./Components/Sidebar";
-import "./App.css";
+import UserList from "./Components/UserList/UserList";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
           <Routes>
 
             <Route path="dashboard" element={<MainDash></MainDash>}></Route>
+            <Route path="userlist" element={<UserList></UserList>}></Route>
+
             <Route path="about"></Route>
             <Route path="/" element={<MainDash></MainDash>}></Route>
           </Routes>

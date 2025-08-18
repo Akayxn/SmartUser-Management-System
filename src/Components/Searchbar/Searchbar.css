@@ -1,0 +1,14 @@
+.Searchbar {
+  padding: 1rem 0rem;
+}
+
+.Searchbar input {
+  width: 350px;
+  height: 30px;
+  padding: 0.2rem 2rem;
+  text-align: left;
+  border: none;
+  border-radius: 0.2rem;
+  border: 1px solid rgba(85, 82, 82, 0.32);
+  box-shadow: 1px 1px 1px rgba(6, 6, 6, 0.119);
+}
