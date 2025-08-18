@@ -7,7 +7,7 @@ function UserRow(props) {
         <td>{props.user.id}</td>
         <td>{props.user.firstName + " " + props.user.lastName}</td>
         <td>{props.user.email}</td>
-        <td>{props.user.address.country}</td>
+        <td>{props.user.country}</td>
         <td>{props.user.phone}</td>
         <td className='Action-buttons'>
             <button className="editBtn" onClick={()=>props.onEdit(props.user.id)}>Edit</button>

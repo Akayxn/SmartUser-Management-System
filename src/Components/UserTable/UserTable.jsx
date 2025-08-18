@@ -3,6 +3,7 @@ import "./UserTable.css";
 import axios from "axios";
 import UserRow from "../UserRow/UserRow";
 import Searchbar from "../Searchbar/Searchbar";
+import { TrySharp } from "@mui/icons-material";
 
 function UserTable() {
   const [SearchText, setSearchText] = useState("");
@@ -26,9 +27,11 @@ function UserTable() {
     const fetchUsers = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("https://dummyjson.com/users");
-        console.log("ApI response ", response.data.users);
-        setUsers(response.data.users);
+        const response = await axios.get(
+          "https://68a3332fc5a31eb7bb1f60ec.mockapi.io/users/Users"
+        );
+        console.log("ApI response ", response.data);
+        setUsers(response.data);
         setLoading(false);
       } catch (error) {
         console.log("Error in ", error);
@@ -49,8 +52,22 @@ function UserTable() {
     alert(`Editing the ${userid}`);
   };
 
-  const handleDelete = (userid) => {
-    alert(`Deleting the ${userid}`);
+  const handleDelete = async (userid) => {
+      try {
+    await axios.delete(
+      `https://68a3332fc5a31eb7bb1f60ec.mockapi.io/users/Users/${userid}`
+    );
+
+   
+    const updatedUsers = users.filter((user) => user.id !== userid);
+    setUsers(updatedUsers);
+
+    alert(`User ${userid} has been successfully deleted.`);
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    alert("Failed to delete user. Please try again.");
+  }
+
   };
 
   const handleNext = () => {
@@ -74,7 +91,7 @@ function UserTable() {
             <th>Id</th>
             <th>User</th>
             <th>Email</th>
-            <th>Address</th>
+            <th>Country</th>
             <th>Phone</th>
             <th>Actions</th>
           </tr>

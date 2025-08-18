@@ -4,15 +4,10 @@ import "./UserForm.css";
 
 function UserForm() {
   const EMPTY_FORM = {
-    imgUpload: null,
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
-    street1: "",
-    street2: "",
-    city: "",
-    postalCode: "",
     country: "",
   };
 
@@ -31,30 +26,29 @@ function UserForm() {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setSubmitting(true);
+  try {
+    const payload = {
+      ...formData,
+      imgUpload: formData.imgUpload ? URL.createObjectURL(formData.imgUpload) : "", // just for preview
+    };
 
-    try {
-      const data = new FormData();
-      for (const key in formData) {
-        data.append(key, formData[key]);
-      }
+    const response = await axios.post(
+      "https://68a3332fc5a31eb7bb1f60ec.mockapi.io/users/Users",
+      payload
+    );
 
-      const response = await axios.post(
-        "https://dummyjson.com/users/add",
-        data,
-        { headers: { "Content-Type": "multipart/form-data" } }
-      );
+    console.log("User added:", response.data);
+    resetForm();
+  } catch (error) {
+    console.error("Error creating user:", error);
+  } finally {
+    setSubmitting(false);
+  }
+};
 
-      console.log("User added:", response.data);
-      resetForm();
-    } catch (error) {
-      console.error("Error creating user:", error);
-    } finally {
-      setSubmitting(false);
-    }
-  };
 
   return (
     <form className="UserForm" onSubmit={handleSubmit}>
@@ -66,7 +60,6 @@ function UserForm() {
           <input
             type="file"
             id="imgUpload"
-            name="imgUpload"
             accept="image/*"
             className="form-input"
             onChange={handleInputChange}
@@ -131,57 +124,7 @@ function UserForm() {
       {/* Address Information */}
       <h3 className="section-title">Address</h3>
       <div className="address-information">
-        <div className="form-group">
-          <label htmlFor="street1">Street Address</label>
-          <input
-            type="text"
-            id="street1"
-            name="street1"
-            placeholder="123 Market St"
-            className="form-input"
-            value={formData.street1}
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="street2">Street Address 2 (optional)</label>
-          <input
-            type="text"
-            id="street2"
-            name="street2"
-            placeholder="Apt, Suite, etc."
-            className="form-input"
-            value={formData.street2}
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="city">City</label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            placeholder="San Francisco"
-            className="form-input"
-            value={formData.city}
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="postalCode">Postal Code</label>
-          <input
-            type="text"
-            id="postalCode"
-            name="postalCode"
-            placeholder="94103"
-            className="form-input"
-            value={formData.postalCode}
-            onChange={handleInputChange}
-          />
-        </div>
+        
 
         <div className="form-group">
           <label htmlFor="country">Country</label>
