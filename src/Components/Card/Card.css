@@ -1,0 +1,33 @@
+.Card {
+  background-color: rgba(255, 255, 255, 0.671);
+  border-radius: 1rem;
+  border: 1px solid hwb(0 0% 100% / 0.185);
+  box-shadow: 1px 1px 1px rgba(196, 196, 196, 0.079);
+  padding: 1rem 2rem;
+}
+
+.CardItems-Grid {
+  display: grid;
+  grid-template-columns: 85% auto;
+  grid-template-rows: none;
+}
+
+.CardIcon {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.CardIcon svg {
+  font-size: 45px;
+  height: 100%;
+}
+
+.Details p {
+  color: hsl(220, 2%, 28%);
+}
+
+.Details h3 {
+  font-size: 35px;
+  font-weight: 500;
+}

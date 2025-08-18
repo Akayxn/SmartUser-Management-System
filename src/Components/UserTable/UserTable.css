@@ -1,0 +1,22 @@
+.UserTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  background-color: white;
+  margin: 0;
+  box-shadow: 1px 1px 1px rgba(6, 6, 6, 0.119);
+  border-radius: 1.5rem;
+}
+
+.UserTable th {
+  background-color: #f8f9fa;
+  padding: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid #e5e7eb;
+  border-radius: 1.5rem;
+}
+
+.UserTable td {
+  padding: 12px;
+  border-bottom: 1px solid #f1f3f4;
+}

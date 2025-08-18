@@ -1,0 +1,36 @@
+.Activity {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.057);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.059);
+  border-radius: 10px;
+  gap: 10px;
+  padding: 5px 10px;
+}
+
+.profileIcon {
+  display: flex;
+  justify-items: center;
+}
+
+.profileIcon img {
+  display: flex;
+  margin: auto;
+  width: 35px;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.Activity-log .time {
+  color: hsla(220, 2%, 28%, 0.597);
+}
+
+.Activity-log .username {
+  font-weight: 600;
+}
+
+.Activity-log span {
+  font-weight: normal;
+}
